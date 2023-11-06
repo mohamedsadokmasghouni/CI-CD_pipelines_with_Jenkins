@@ -4,7 +4,9 @@ pipeline{
 
         stage("getting code") {
             steps {
-                sh "ls"
+                git url: 'https://github.com/mohamedsadokmasghouni/tp3-app', branch: 'main',
+                // credentialsId: 'github-credentials' //jenkins-github-creds
+                sh "ls -ltr"
             }
         }
 
