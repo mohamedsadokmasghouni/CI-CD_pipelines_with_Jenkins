@@ -15,8 +15,8 @@ pipeline{
               steps{
                   script{
                     sh 'docker build -t sadook/tp3:latest .'
-		            withCredentials([string(credentialsId: 'docker-password', variable: 'docker-password')]) {
-                        sh 'docker login -u sadook -p $docker-password'
+		        withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                        sh 'docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}'
                         sh 'docker push sadook/tp3:latest'
                     }
                   }
