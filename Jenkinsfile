@@ -28,10 +28,11 @@ pipeline{
               steps{
                   script{
                     withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-			sh 'kubectl delete -f k8s/deployment.yaml'
-			sh 'kubectl delete -f k8s/service.yaml'
-                        sh 'kubectl apply -f k8s/deployment.yaml'
-			sh 'kubectl apply -f k8s/service.yaml'
+			//sh 'kubectl delete -f k8s/deployment.yaml'
+			//sh 'kubectl delete -f k8s/service.yaml'
+                        //sh 'kubectl apply -f k8s/deployment.yaml'
+			//sh 'kubectl apply -f k8s/service.yaml'
+			sh 'ansible-playbook k8s/ansible-playbook.yaml'
                     }
                     }
                   }
