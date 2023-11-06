@@ -15,5 +15,6 @@ spec:
       containers:
       - name: tp3-app
         image: sadook/tp3:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
