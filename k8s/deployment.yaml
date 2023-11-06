@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tp3-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tp3
+  template:
+    metadata:
+      labels:
+        app: tp3
+    spec:
+      containers:
+      - name: tp3-app
+        image: sadook/tp3:latest
+        ports:
+        - containerPort: 80
