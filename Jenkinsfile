@@ -4,7 +4,7 @@ pipeline{
 
         stage("getting code") {
             steps {
-                git url: 'https://github.com/mohamedsadokmasghouni/tp3-app', branch: 'main',
+                sh "git url: 'https://github.com/mohamedsadokmasghouni/tp3-app', branch: 'main'",
                 // credentialsId: 'github-credentials' //jenkins-github-creds
                 sh "ls -ltr"
             }
