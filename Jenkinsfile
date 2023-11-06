@@ -32,7 +32,7 @@ pipeline{
 			//sh 'kubectl delete -f k8s/service.yaml'
                         //sh 'kubectl apply -f k8s/deployment.yaml'
 			//sh 'kubectl apply -f k8s/service.yaml'
-			ansiblePlaybook become: true, becomeUser: 'sadok', installation: 'ansible', inventory: 'localhost', playbook: 'k8s/ansible-playbook.yaml', vaultTmpPath: ''
+			ansiblePlaybook become: true, becomeUser: 'root', becomePassword: 'Sadok1234567', installation: 'ansible', inventory: 'localhost', playbook: 'k8s/ansible-playbook.yaml', vaultTmpPath: ''
                     }
                     }
                   }
