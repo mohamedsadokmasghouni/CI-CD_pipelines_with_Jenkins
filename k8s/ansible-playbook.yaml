@@ -1,19 +1,8 @@
-- name: Deploying Application to Kubernetes
-  hosts: localhost
-  gather_facts: false
-  vars:
-    kubeconfig_file: ~/.kube/config
+- hosts: localhost
   tasks:
-    - name: Create Deployment
-      kubernetes.core.k8s:
-        kubeconfig: "{{ kubeconfig_file }}"
-        state: present
-        src: deployment.yaml
-        namespace: "{{ namespace_name }}"
-
-    - name: Expose application on NodePort
-      kubernetes.core.k8s:
-        kubeconfig: "{{ kubeconfig_file }}"
-        state: present
-        src: service.yaml
-        namespace: "{{ namespace_name }}"
+  - name: delete the previous of kubernetes objects 
+    command: kubectl delete -f deployment.yaml
+    command: kubectl delete -f service.yaml
+  - name: Create a Deployment and Service by reading the definition from a local file
+    command: kubectl apply -f deployment.yaml
+    command: kubectl apply -f service.yaml
