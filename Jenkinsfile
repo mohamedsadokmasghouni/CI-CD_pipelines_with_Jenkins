@@ -32,7 +32,7 @@ pipeline{
 			//sh 'kubectl delete -f k8s/service.yaml'
                         //sh 'kubectl apply -f k8s/deployment.yaml'
 			//sh 'kubectl apply -f k8s/service.yaml'
-			sh 'ansible-playbook k8s/ansible-playbook.yaml'
+			ansiblePlaybook become: true, installation: 'ansible', inventory: 'localhost', playbook: 'ansible-playbook.yaml', vaultTmpPath: ''
                     }
                     }
                   }
