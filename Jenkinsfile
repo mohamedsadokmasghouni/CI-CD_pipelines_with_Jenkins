@@ -12,10 +12,10 @@ pipeline{
                 {
               steps{
                   script{
-                    sh 'echo "Sadok1234567" | sudo -S docker build -t sadook/tp3:latest .'
+                    sh 'sudo -S docker build -t sadook/tp3:latest .'
 		            withCredentials([string(credentialsId: 'docker-password', variable: 'docker-password')]) {
-                        sh 'echo "Sadok1234567" | sudo -S docker login -u sadook -p $docker-password'
-                        sh 'echo "Sadok1234567" | sudo -S docker push sadook/tp3:latest'
+                        sh 'sudo docker login -u sadook -p $docker-password'
+                        sh 'sudo docker push sadook/tp3:latest'
                     }
                   }
               }
